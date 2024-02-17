@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const ApiKey = '0a1f54de98a94593b203abe9891393f7';
+const ApiKey = 'a803bade5cf3445582517dceab3630f7';
 axios.defaults.baseURL = `
  https://newsapi.org/`;
 
