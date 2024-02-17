@@ -17,7 +17,6 @@ const articlesSlice = createSlice({
     articlesToLoad: 10,
     total: 0,
     page: 1,
-    filter: '',
     isLoading: false,
     error: null,
   },
@@ -26,8 +25,10 @@ const articlesSlice = createSlice({
       state.page += 1;
       state.articlesToLoad = action.payload;
     },
-    changeFilter: (state, action) => {
-      state.filter = action.payload;
+    resetArticles: state => {
+      state.articles = [];
+      state.page = 1;
+      state.articlesToLoad = 10;
     },
   },
   extraReducers: builder => {
@@ -43,5 +44,5 @@ const articlesSlice = createSlice({
   },
 });
 
-export const { morePage, changeFilter } = articlesSlice.actions;
+export const { morePage, resetArticles } = articlesSlice.actions;
 export const articlesReducer = articlesSlice.reducer;

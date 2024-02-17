@@ -1,25 +1,21 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { changeFilter } from '../../redux/acrticles/articlesSlice';
+import {
+  SearchbarContainer,
+  SearchbarInput,
+  SearchbarText,
+} from './Searchbar.styled';
 
-export const Searchbar = () => {
-  const dispatch = useDispatch();
-
-  //   const onFormSubmit = e => {
-  //     e.preventDefault();
-  //     dispatch(changeFilter(e.target.input.value));
-  //     e.target.input.value = '';
-  //   };
-
+export const Searchbar = ({ changeFilter }) => {
   return (
-    <div>
-      <input
+    <SearchbarContainer>
+      <SearchbarText>Find article</SearchbarText>
+      <SearchbarInput
         id="input"
         type="text"
         onChange={e => {
-          dispatch(changeFilter(e.target.value));
+          changeFilter(e.target.value);
         }}
       />
-    </div>
+    </SearchbarContainer>
   );
 };

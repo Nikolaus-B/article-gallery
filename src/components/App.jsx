@@ -1,13 +1,17 @@
-import { ArticleList } from './ArticleList/ArticleList';
-import { Container, GlobalStyle } from './GlobalStyle';
-import { Searchbar } from './Searchbar/Searchbar';
+import { Route, Routes } from 'react-router-dom';
+import { AppLayout } from './AppLayout/AppLayout';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const ArticlesPage = lazy(() => import('pages/ArticlesPage'));
 
 export const App = () => {
   return (
-    <Container>
-      <Searchbar />
-      <ArticleList />
-      <GlobalStyle />
-    </Container>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="articles" element={<ArticlesPage />} />
+      </Route>
+    </Routes>
   );
 };
