@@ -11,6 +11,7 @@ import {
   FormField,
   Label,
 } from './UserForm.styled';
+import toast from 'react-hot-toast';
 
 const ArticleSchema = Yup.object().shape({
   imageUrl: Yup.string(),
@@ -48,6 +49,7 @@ export const UserForm = () => {
               article.title.toLowerCase() === values.title.toLowerCase()
           )
         ) {
+          toast.error(`Article ${values.title} already exists`);
           return;
         }
         dispatch(addArticle({ ...values, id: uid() }));
@@ -66,15 +68,15 @@ export const UserForm = () => {
         </Label>
 
         <Label>
-          Description
-          <FormField name="description" placeholder="lorem" />
-          <FormErrorMessage component={'span'} name="description" />
-        </Label>
-
-        <Label>
           Title
           <FormField name="title" placeholder="lorem" />
           <FormErrorMessage component={'span'} name="title" />
+        </Label>
+
+        <Label>
+          Description
+          <FormField name="description" placeholder="lorem" />
+          <FormErrorMessage component={'span'} name="description" />
         </Label>
 
         <FormButton type="submit">Add article</FormButton>

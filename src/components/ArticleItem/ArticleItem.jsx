@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, ImageContainer, Item } from './ArticleItem.styled';
+import {
+  ArticleAuthor,
+  ArticleDescription,
+  ArticleTitle,
+  Image,
+  ImageContainer,
+  Item,
+} from './ArticleItem.styled';
 
 export const ArticleItem = ({ article }) => {
   return (
@@ -13,9 +20,18 @@ export const ArticleItem = ({ article }) => {
           alt="article title"
         />
       </ImageContainer>
-      <h1>{article.author || 'No author'} </h1>
-      <h2>{article.title || 'No title'} </h2>
-      <p>{article.description || 'No description avalable'} </p>
+      <ArticleAuthor>
+        <span style={{ color: '#a2add0' }}>Author: </span>{' '}
+        {article.author || 'No author'}{' '}
+      </ArticleAuthor>
+      <ArticleTitle>
+        <span style={{ color: '#b7c7c3' }}>Title: </span>
+        {article.title || 'No title'}{' '}
+      </ArticleTitle>
+      <ArticleDescription>
+        <span style={{ color: '#ad6d88' }}>Description: </span>
+        {article.description || 'No description avalable'}{' '}
+      </ArticleDescription>
     </Item>
   );
 };

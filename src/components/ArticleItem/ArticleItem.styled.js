@@ -12,9 +12,14 @@ export const Item = styled.li`
 export const ImageContainer = styled.div`
   width: 380px;
   height: 240px;
+  margin-bottom: 10px;
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
 `;
+
+export const ArticleAuthor = styled.h3``;
+export const ArticleTitle = styled.h2``;
+export const ArticleDescription = styled.p``;

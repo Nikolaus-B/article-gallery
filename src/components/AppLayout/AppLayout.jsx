@@ -9,6 +9,7 @@ import {
   HeaderList,
   Nav,
 } from './AppLayout.styled';
+import { Toaster } from 'react-hot-toast';
 
 export const AppLayout = () => {
   return (
@@ -31,7 +32,7 @@ export const AppLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-
+      <Toaster />
       <GlobalStyle />
     </>
   );
