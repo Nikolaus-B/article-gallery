@@ -14,7 +14,10 @@ export const UserList = ({ filter }) => {
 
   let filteredArticles = userArticles.filter(article => {
     const pattern = new RegExp(filter, 'i');
-    return pattern.test(article.author) && article.id !== pinedArticle.id;
+    return (
+      (pattern.test(article.author) || pattern.test(article.description)) &&
+      article.id !== pinedArticle.id
+    );
   });
 
   return (
